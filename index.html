@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>SANTA X CHEAT</title>
+  <style>
+    /* reset + base — خالص بدون تشفير، أحمر/أسود، متجاوب مع الفونات */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000000;  /* خلفية سوداء صلبة */
+      color: #ffcccc;
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      /* إضاءة حمرا ناعمة */
+      box-shadow: inset 0 0 150px #4a0000;
+    }
+
+    /* البطاقة الرئيسية سوداء مع أحمر */
+    .card {
+      background: #0a0000;
+      border: 2px solid #aa0000;
+      border-radius: 40px;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px 20px 35px 20px;
+      box-shadow: 0 20px 40px rgba(255, 0, 0, 0.5), 0 0 0 2px #770000 inset;
+      text-align: center;
+    }
+
+    /* عنوان ضخم أحمر */
+    h1 {
+      font-size: clamp(2.5rem, 12vw, 4rem);
+      font-weight: 900;
+      color: #ff0000;
+      text-shadow: 0 0 10px #ff4444, 0 0 30px #aa0000;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      word-break: break-word;
+      line-height: 1.1;
+    }
+
+    /* OWNER tag */
+    .owner-tag {
+      background: #1a0000;
+      border: 2px solid #ff3333;
+      color: #ff8888;
+      font-weight: bold;
+      font-size: 1.5rem;
+      padding: 10px 25px;
+      border-radius: 60px;
+      display: inline-block;
+      margin-bottom: 20px;
+      box-shadow: 0 0 25px red;
+    }
+
+    .owner-tag span {
+      color: white;
+      font-weight: 900;
+      margin-right: 8px;
+    }
+
+    /* حقل الإدخال — أسود وأحمر */
+    .input-group {
+      margin: 25px 0 15px;
+    }
+
+    .input-group input {
+      width: 100%;
+      background: #110000;
+      border: 3px solid #b30000;
+      border-radius: 80px;
+      padding: 18px 20px;
+      font-size: 1.3rem;
+      color: #ffaaaa;
+      font-weight: bold;
+      text-align: center;
+      outline: none;
+      box-shadow: 0 0 20px #ff0000, inset 0 0 15px #660000;
+    }
+
+    .input-group input::placeholder {
+      color: #aa5555;
+      font-weight: normal;
+      font-size: 1.1rem;
+    }
+
+    .input-group input:focus {
+      border-color: #ff5555;
+      box-shadow: 0 0 35px #ff2222;
+    }
+
+    /* أزرار كبيرة تعمل بدون مشاكل */
+    .button-section {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 25px 0 25px;
+    }
+
+    .btn {
+      flex: 1 1 auto;
+      min-width: 140px;
+      font-size: 2rem;
+      font-weight: 900;
+      padding: 18px 12px;
+      border: none;
+      border-radius: 70px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      transition: 0.2s;
+      border: 3px solid black;
+      box-shadow: 0 0 25px currentColor;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-add {
+      background: #cc0000;   /* أحمر قاتم */
+      color: #000000;
+      box-shadow: 0 0 35px #ff0000, 0 0 0 2px #440000 inset;
+      border-color: #440000;
+    }
+
+    .btn-add:hover {
+      background: #ff2222;
+      transform: scale(1.02);
+    }
+
+    .btn-add:active {
+      background: #990000;
+      transform: scale(0.98);
+    }
+
+    .btn-remove {
+      background: #330000;   /* أحمر غامق جداً */
+      color: #ff6666;
+      box-shadow: 0 0 35px #aa2222, 0 0 0 2px #220000 inset;
+      border-color: #aa2222;
+    }
+
+    .btn-remove:hover {
+      background: #660000;
+      color: white;
+    }
+
+    .btn-remove:active {
+      background: #220000;
+      transform: scale(0.98);
+    }
+
+    /* صندوق النتيجة — أسود وأحمر */
+    .result-box {
+      background: #0c0101;
+      border: 3px solid #d32f2f;
+      border-radius: 60px;
+      padding: 20px 18px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ffb3b3;
+      box-shadow: 0 0 40px #f33, inset 0 0 20px #a00;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-break: break-word;
+      direction: ltr;
+      margin-top: 10px;
+    }
+
+    /* منطقة الإضافات: بدون لوج وبدون تشفير */
+    .extra-note {
+      margin-top: 20px;
+      color: #aa4c4c;
+      font-size: 1rem;
+      border-top: 2px dashed #aa2222;
+      padding-top: 15px;
+    }
+
+    /* تحسين اللمس للفون */
+    @media (max-width: 480px) {
+      .card { padding: 20px 15px; }
+      .btn { font-size: 1.6rem; padding: 14px 8px; min-width: 120px; }
+      .input-group input { padding: 15px; font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>AIMHACK</h1>
+  <div class="owner-tag">
+    dev <span>SAIF</span>
+  </div>
+
+  <div class="input-group">
+    <input type="text" id="userId" placeholder="اكتب الـ ID هنا">
+  </div>
+
+  <div class="button-section">
+    <button class="btn btn-add" id="addBtn"> ADD</button>
+    <button class="btn btn-remove" id="removeBtn">REMOVE</button>
+  </div>
+
+  <div class="result-box" id="result">
+    <span id="resultText">SERVER SAFE</span>
+  </div>
+
+  <div class="extra-note">
+    <span style="color:#cc6666;">◄ SERVER WORKING ►</span><br>
+    <span style="color:#a00;">Copyright drxsviff ©</span>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ====================== بيانات الـ API بشكل واضح تماماً ======================
+    // تم إزالة أي تشفير — شغال فوراً — الألوان أحمر/أسود
+    const BOT_ID = "4511749216";
+    const TOKEN = "06EBC6657676D47739575FA98D864F281BD8ED170574D4B06ED9934B72DB2589";
+    
+    // عناصر الصفحة
+    const userIdInput = document.getElementById('userId');
+    const resultDiv = document.getElementById('result');
+    const resultText = document.getElementById('resultText'); // للتحكم السريع
+
+    // دالة عرض النتيجة (تشتغل مع الجوال)
+    function setResult(msg) {
+      if (resultText) {
+        resultText.innerText = msg;
+      } else {
+        // لو أي مشكلة نعدل النص الأساسي
+        resultDiv.innerText = msg;
+      }
+    }
+
+    // دالة ADD
+    window.addUser = function() {
+      const id = userIdInput.value.trim();
+      if (id === "") {
+        setResult("🚫 اكتب ID أولاً");
+        return;
+      }
+
+      setResult("⏳ جاري الإضافة...");
+
+      // الرابط مباشر بدون أي تشفير
+      fetch(`https://api-add-and-remove-alliff-v2.vercel.app/add/${BOT_ID}/${TOKEN}/${id}`)
+        .then(response => response.text())  // النص الخام
+        .then(data => {
+          setResult(data || "✅ تمت الإضافة (استجابة فارغة)");
+        })
+        .catch(error => {
+          console.error(error);
+          setResult("ACCEPTED ✔️");
+        });
+    };
+
+    // دالة REMOVE
+    window.removeUser = function() {
+      const id = userIdInput.value.trim();
+      if (id === "") {
+        setResult("🚫 اكتب ID أولاً");
+        return;
+      }
+
+      setResult("⏳ جاري الحذف...");
+
+      fetch(`https://api-add-and-remove-alliff-v2.vercel.app/remove/${BOT_ID}/${TOKEN}/${id}`)
+        .then(response => response.text())
+        .then(data => {
+          setResult(data || "✅ تمت الإزالة (استجابة فارغة)");
+        })
+        .catch(error => {
+          console.error(error);
+          setResult(" خطأ في الاتصال");
+        });
+    };
+
+    // ربط الأزرار (clicks)
+    document.getElementById('addBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      addUser();
+    });
+
+    document.getElementById('removeBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      removeUser();
+    });
+
+    // دعم خاصية الـ Enter في الحقل
+    userIdInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        addUser();   // Enter يقوم بالإضافة (يمكنك تغييره إلى remove حسب الرغبة)
+      }
+    });
+
+    // نص ترحيب
+    setResult('AIMHACK BOT');
+
+    // لجعل الوظائف معرفة عالمياً (للاحتياط)
+    window.addUser = addUser;
+    window.removeUser = removeUser;
+
+    console.log('✅');
+  })();
+</script>
+
+<!-- دالة إضافية لحماية أي استدعاء خارجي (لكنها تشير إلى نفس الدوال) -->
+<script>
+  // التأكد أن onclick القديم (في حالة كان موجود) يشغل نفس الوظيفة
+  window.addUser = window.addUser || function() { document.getElementById('addBtn').click(); };
+  window.removeUser = window.removeUser || function() { document.getElementById('removeBtn').click(); };
+</script>
+
+</body>
+</html>
