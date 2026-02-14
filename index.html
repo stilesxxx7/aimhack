@@ -2,328 +2,1145 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>SANTA X CHEAT</title>
   <style>
-    /* reset + base — خالص بدون تشفير، أحمر/أسود، متجاوب مع الفونات */
+    /* Import modern font */
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
     }
 
     body {
-      background: #000000;  /* خلفية سوداء صلبة */
-      color: #ffcccc;
-      font-family: 'Arial', 'Helvetica', sans-serif;
+      background: #0a0a0a;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px;
-      /* إضاءة حمرا ناعمة */
-      box-shadow: inset 0 0 150px #4a0000;
+      padding: 12px;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* البطاقة الرئيسية سوداء مع أحمر */
-    .card {
-      background: #0a0000;
-      border: 2px solid #aa0000;
-      border-radius: 40px;
+    /* Animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(180, 0, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.1) 0%, transparent 40%),
+        linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
+      animation: backgroundPulse 8s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes backgroundPulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+
+    /* Floating particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 500px;
-      padding: 30px 20px 35px 20px;
-      box-shadow: 0 20px 40px rgba(255, 0, 0, 0.5), 0 0 0 2px #770000 inset;
-      text-align: center;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
     }
 
-    /* عنوان ضخم أحمر */
+    .particle {
+      position: absolute;
+      background: rgba(255, 0, 0, 0.2);
+      border-radius: 50%;
+      animation: float 15s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+    }
+
+    /* Main card */
+    .card {
+      background: rgba(18, 5, 5, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 60, 60, 0.3);
+      border-radius: 48px;
+      width: 100%;
+      max-width: 520px;
+      padding: 28px 22px;
+      box-shadow: 
+        0 30px 60px rgba(255, 0, 0, 0.4),
+        0 0 0 2px rgba(255, 80, 80, 0.2) inset,
+        0 0 40px rgba(255, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    /* Glass reflection */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: reflection 6s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes reflection {
+      0% { left: -100%; }
+      20%, 100% { left: 100%; }
+    }
+
+    /* Glowing border */
+    .card::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff0000, #ff6666, #ff0000, #cc0000);
+      border-radius: 50px;
+      z-index: -1;
+      animation: borderGlow 3s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes borderGlow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    /* Header */
     h1 {
-      font-size: clamp(2.5rem, 12vw, 4rem);
+      font-size: clamp(2.8rem, 15vw, 4.2rem);
       font-weight: 900;
-      color: #ff0000;
-      text-shadow: 0 0 10px #ff4444, 0 0 30px #aa0000;
+      background: linear-gradient(135deg, #ff3333, #ff9999, #ff3333);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 30px rgba(255, 50, 50, 0.8);
       letter-spacing: 2px;
-      margin-bottom: 10px;
-      word-break: break-word;
-      line-height: 1.1;
+      margin-bottom: 15px;
+      position: relative;
+      animation: titleGlitch 4s infinite;
+      line-height: 1.2;
     }
 
-    /* OWNER tag */
+    @keyframes titleGlitch {
+      0%, 100% { transform: skew(0deg); }
+      95% { transform: skew(0deg); }
+      96% { transform: skew(5deg); text-shadow: -5px 0 #ff0000; }
+      97% { transform: skew(-5deg); text-shadow: 5px 0 #ff6666; }
+      98% { transform: skew(0deg); }
+    }
+
+    /* Owner badge */
+    .owner-section {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
     .owner-tag {
-      background: #1a0000;
-      border: 2px solid #ff3333;
-      color: #ff8888;
-      font-weight: bold;
-      font-size: 1.5rem;
-      padding: 10px 25px;
-      border-radius: 60px;
-      display: inline-block;
-      margin-bottom: 20px;
-      box-shadow: 0 0 25px red;
+      background: linear-gradient(145deg, #2a0000, #0f0000);
+      border: 2px solid #ff5555;
+      color: #ffdddd;
+      font-weight: 700;
+      font-size: 1.6rem;
+      padding: 12px 40px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 
+        0 0 30px #ff3333,
+        0 0 0 2px rgba(255, 100, 100, 0.5) inset;
+      position: relative;
+      overflow: hidden;
     }
 
     .owner-tag span {
-      color: white;
+      color: #ffffff;
       font-weight: 900;
-      margin-right: 8px;
+      background: linear-gradient(135deg, #fff, #ffaaaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    /* حقل الإدخال — أسود وأحمر */
+    .owner-tag::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(transparent, rgba(255, 50, 50, 0.3), transparent);
+      animation: rotate 4s linear infinite;
+    }
+
+    @keyframes rotate {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Input field */
     .input-group {
-      margin: 25px 0 15px;
+      margin: 25px 0;
+      position: relative;
+    }
+
+    .input-group label {
+      position: absolute;
+      top: -12px;
+      right: 25px;
+      background: #2a0000;
+      padding: 5px 25px;
+      border-radius: 50px;
+      color: #ffaaaa;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 2px solid #ff5555;
+      box-shadow: 0 0 20px #ff3333;
+      z-index: 2;
+      backdrop-filter: blur(5px);
     }
 
     .input-group input {
       width: 100%;
-      background: #110000;
-      border: 3px solid #b30000;
-      border-radius: 80px;
-      padding: 18px 20px;
+      background: rgba(20, 5, 5, 0.9);
+      border: 3px solid #ff3333;
+      border-radius: 50px;
+      padding: 20px 25px;
       font-size: 1.3rem;
-      color: #ffaaaa;
-      font-weight: bold;
+      color: #fff;
+      font-weight: 600;
       text-align: center;
       outline: none;
-      box-shadow: 0 0 20px #ff0000, inset 0 0 15px #660000;
+      box-shadow: 
+        0 0 30px #ff0000,
+        0 0 0 3px rgba(255, 80, 80, 0.3) inset;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+
+    .input-group input:focus {
+      border-color: #ff8888;
+      box-shadow: 
+        0 0 50px #ff4444,
+        0 0 0 4px rgba(255, 120, 120, 0.5) inset;
+      transform: scale(1.02);
+      background: rgba(40, 10, 10, 0.95);
     }
 
     .input-group input::placeholder {
       color: #aa5555;
-      font-weight: normal;
+      font-weight: 500;
       font-size: 1.1rem;
     }
 
-    .input-group input:focus {
-      border-color: #ff5555;
-      box-shadow: 0 0 35px #ff2222;
+    /* Duration selector - modern design */
+    .duration-selector {
+      background: rgba(30, 5, 5, 0.6);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 80, 80, 0.3);
+      border-radius: 50px;
+      padding: 15px;
+      margin: 25px 0;
     }
 
-    /* أزرار كبيرة تعمل بدون مشاكل */
-    .button-section {
-      display: flex;
-      flex-direction: row;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 25px 0 25px;
-    }
-
-    .btn {
-      flex: 1 1 auto;
-      min-width: 140px;
-      font-size: 2rem;
-      font-weight: 900;
-      padding: 18px 12px;
-      border: none;
-      border-radius: 70px;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      transition: 0.2s;
-      border: 3px solid black;
-      box-shadow: 0 0 25px currentColor;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .btn-add {
-      background: #cc0000;   /* أحمر قاتم */
-      color: #000000;
-      box-shadow: 0 0 35px #ff0000, 0 0 0 2px #440000 inset;
-      border-color: #440000;
-    }
-
-    .btn-add:hover {
-      background: #ff2222;
-      transform: scale(1.02);
-    }
-
-    .btn-add:active {
-      background: #990000;
-      transform: scale(0.98);
-    }
-
-    .btn-remove {
-      background: #330000;   /* أحمر غامق جداً */
-      color: #ff6666;
-      box-shadow: 0 0 35px #aa2222, 0 0 0 2px #220000 inset;
-      border-color: #aa2222;
-    }
-
-    .btn-remove:hover {
-      background: #660000;
-      color: white;
-    }
-
-    .btn-remove:active {
-      background: #220000;
-      transform: scale(0.98);
-    }
-
-    /* صندوق النتيجة — أسود وأحمر */
-    .result-box {
-      background: #0c0101;
-      border: 3px solid #d32f2f;
-      border-radius: 60px;
-      padding: 20px 18px;
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #ffb3b3;
-      box-shadow: 0 0 40px #f33, inset 0 0 20px #a00;
-      min-height: 90px;
+    .duration-title {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 10px;
+      color: #ffcccc;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .duration-title .icon {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .duration-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .duration-btn {
+      background: linear-gradient(145deg, #220000, #0a0000);
+      border: 2px solid #aa3333;
+      color: #ffaaaa;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 14px 8px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .duration-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .duration-btn:hover::before {
+      left: 100%;
+    }
+
+    .duration-btn.active {
+      background: linear-gradient(145deg, #ff2222, #aa0000);
+      color: white;
+      border-color: #ffaaaa;
+      box-shadow: 
+        0 0 30px #ff3333,
+        0 0 0 2px rgba(255, 200, 200, 0.5) inset;
+      transform: scale(1.05);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 30px #ff3333; }
+      50% { box-shadow: 0 0 50px #ff6666; }
+    }
+
+    /* Action buttons */
+    .button-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .btn {
+      padding: 20px 15px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.8rem;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+      transition: transform 0.5s;
+    }
+
+    .btn:hover::after {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+
+    .btn-add {
+      background: linear-gradient(145deg, #ff3333, #990000);
+      color: #000;
+      box-shadow: 0 10px 30px #ff0000;
+      border: 2px solid #ffaaaa;
+    }
+
+    .btn-add:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 20px 40px #ff4444;
+    }
+
+    .btn-add:active {
+      transform: translateY(5px) scale(0.95);
+    }
+
+    .btn-remove {
+      background: linear-gradient(145deg, #330000, #0f0000);
+      color: #ffaaaa;
+      box-shadow: 0 10px 30px #990000;
+      border: 2px solid #ff5555;
+    }
+
+    .btn-remove:hover {
+      transform: translateY(-5px) scale(1.05);
+      color: white;
+      box-shadow: 0 20px 40px #ff3333;
+    }
+
+    /* Result box */
+    .result-box {
+      background: rgba(20, 5, 5, 0.8);
+      backdrop-filter: blur(10px);
+      border: 3px solid #ff4444;
+      border-radius: 50px;
+      padding: 20px;
+      margin: 25px 0;
+      box-shadow: 
+        0 0 40px #ff2222,
+        0 0 0 3px rgba(255, 100, 100, 0.3) inset;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .result-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #ffdddd;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
       word-break: break-word;
-      direction: ltr;
-      margin-top: 10px;
+      min-height: 60px;
     }
 
-    /* منطقة الإضافات: بدون لوج وبدون تشفير */
-    .extra-note {
+    .result-content i {
+      font-size: 1.8rem;
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Users list */
+    .users-list {
+      background: rgba(25, 5, 5, 0.6);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 80, 80, 0.3);
+      border-radius: 40px;
+      padding: 20px 15px;
       margin-top: 20px;
-      color: #aa4c4c;
-      font-size: 1rem;
-      border-top: 2px dashed #aa2222;
-      padding-top: 15px;
     }
 
-    /* تحسين اللمس للفون */
-    @media (max-width: 480px) {
+    .users-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+
+    .users-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffcccc;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .users-count {
+      background: linear-gradient(145deg, #ff2222, #990000);
+      color: white;
+      padding: 5px 20px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      box-shadow: 0 0 20px #ff0000;
+    }
+
+    .users-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 350px;
+      overflow-y: auto;
+      padding: 5px;
+      scrollbar-width: thin;
+      scrollbar-color: #ff4444 #220000;
+    }
+
+    .users-container::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .users-container::-webkit-scrollbar-track {
+      background: #220000;
+      border-radius: 10px;
+    }
+
+    .users-container::-webkit-scrollbar-thumb {
+      background: #ff4444;
+      border-radius: 10px;
+    }
+
+    .user-item {
+      background: linear-gradient(145deg, #220000, #0a0000);
+      border: 2px solid #ff4444;
+      border-radius: 30px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      animation: slideIn 0.3s ease;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .user-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #ff0000, #ff6666);
+      animation: glowPulse 2s infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .user-item:hover {
+      transform: translateX(-5px);
+      box-shadow: 0 5px 25px rgba(255, 0, 0, 0.4);
+    }
+
+    .user-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .user-id {
+      color: #ffaaaa;
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-family: monospace;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .user-id i {
+      color: #ff4444;
+    }
+
+    .user-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .user-duration {
+      background: rgba(255, 50, 50, 0.2);
+      border: 1px solid #ff5555;
+      color: #ffbbbb;
+      font-size: 0.9rem;
+      padding: 4px 15px;
+      border-radius: 30px;
+    }
+
+    .user-timer {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid #ffaa00;
+      color: #ffaa00;
+      font-size: 1rem;
+      padding: 4px 15px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      direction: ltr;
+      font-family: monospace;
+    }
+
+    .timer-warning {
+      background: rgba(255, 150, 0, 0.2);
+      border-color: #ffaa00;
+      color: #ffbb33;
+    }
+
+    .timer-critical {
+      background: rgba(255, 0, 0, 0.3);
+      border-color: #ff0000;
+      color: #ff6666;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .delete-single-btn {
+      background: linear-gradient(145deg, #440000, #1a0000);
+      border: 2px solid #ff5555;
+      color: #ffaaaa;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.3s;
+      min-width: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .delete-single-btn:hover {
+      background: linear-gradient(145deg, #660000, #330000);
+      color: white;
+      border-color: #ff8888;
+      box-shadow: 0 0 30px #ff3333;
+      transform: scale(1.1);
+    }
+
+    .empty-list {
+      text-align: center;
+      color: #aa5555;
+      font-size: 1.2rem;
+      padding: 40px 20px;
+      background: rgba(30, 5, 5, 0.4);
+      border-radius: 30px;
+      border: 2px dashed #ff5555;
+    }
+
+    .clear-all-btn {
+      width: 100%;
+      background: linear-gradient(145deg, #2a0000, #0f0000);
+      border: 2px solid #ff5555;
+      color: #ffaaaa;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 15px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .clear-all-btn:hover {
+      background: linear-gradient(145deg, #440000, #220000);
+      color: white;
+      border-color: #ff8888;
+      box-shadow: 0 0 30px #ff3333;
+      transform: scale(1.02);
+    }
+
+    .footer {
+      margin-top: 25px;
+      text-align: center;
+      color: #aa5555;
+      font-size: 1rem;
+      border-top: 2px solid rgba(255, 80, 80, 0.3);
+      padding-top: 20px;
+    }
+
+    .footer span {
+      color: #ff8888;
+      font-weight: 700;
+      animation: footerGlow 2s infinite;
+    }
+
+    @keyframes footerGlow {
+      0%, 100% { text-shadow: 0 0 5px #ff0000; }
+      50% { text-shadow: 0 0 20px #ff3333; }
+    }
+
+    /* Responsive for small screens */
+    @media (max-width: 400px) {
       .card { padding: 20px 15px; }
-      .btn { font-size: 1.6rem; padding: 14px 8px; min-width: 120px; }
-      .input-group input { padding: 15px; font-size: 1.2rem; }
+      .btn { font-size: 1.5rem; padding: 15px; }
+      .duration-btn { font-size: 1rem; padding: 12px 5px; }
+      .user-item { flex-direction: column; align-items: stretch; }
+      .user-meta { justify-content: center; }
+      .delete-single-btn { width: 100%; }
+      .duration-buttons { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
+  <!-- Floating particles background -->
+  <div class="particles" id="particles"></div>
 
-<div class="card">
-  <h1>AIMHACK</h1>
-  <div class="owner-tag">
-    dev <span>SAIF</span>
-  </div>
-
-  <div class="input-group">
-    <input type="text" id="userId" placeholder="اكتب الـ ID هنا">
-  </div>
-
-  <div class="button-section">
-    <button class="btn btn-add" id="addBtn"> ADD</button>
-    <button class="btn btn-remove" id="removeBtn">REMOVE</button>
-  </div>
-
-  <div class="result-box" id="result">
-    <span id="resultText">SERVER SAFE</span>
-  </div>
-
-  <div class="extra-note">
-    <span style="color:#cc6666;">◄ SERVER WORKING ►</span><br>
-    <span style="color:#a00;">Copyright drxsviff ©</span>
-  </div>
-</div>
-
-<script>
-  (function() {
-    // ====================== بيانات الـ API بشكل واضح تماماً ======================
-    // تم إزالة أي تشفير — شغال فوراً — الألوان أحمر/أسود
-    const BOT_ID = "4511749216";
-    const TOKEN = "06EBC6657676D47739575FA98D864F281BD8ED170574D4B06ED9934B72DB2589";
+  <div class="card">
+    <h1>AIMHACK</h1>
     
-    // عناصر الصفحة
-    const userIdInput = document.getElementById('userId');
-    const resultDiv = document.getElementById('result');
-    const resultText = document.getElementById('resultText'); // للتحكم السريع
+    <div class="owner-section">
+      <div class="owner-tag">
+        <span>⚡</span> dev <span>SAIF</span> <span>⚡</span>
+      </div>
+    </div>
 
-    // دالة عرض النتيجة (تشتغل مع الجوال)
-    function setResult(msg) {
-      if (resultText) {
-        resultText.innerText = msg;
-      } else {
-        // لو أي مشكلة نعدل النص الأساسي
-        resultDiv.innerText = msg;
+    <div class="input-group">
+      <label>USER ID</label>
+      <input type="text" id="userId" placeholder="أدخل الـ ID">
+    </div>
+
+    <div class="duration-selector">
+      <div class="duration-title">
+        <span class="icon">⏱️</span>
+        <span>مدة الصلاحية</span>
+        <span class="icon">⌛</span>
+      </div>
+      <div class="duration-buttons">
+        <button class="duration-btn" data-duration="hour">ساعة</button>
+        <button class="duration-btn" data-duration="day">يوم</button>
+        <button class="duration-btn" data-duration="week">أسبوع</button>
+        <button class="duration-btn" data-duration="month">شهر</button>
+      </div>
+    </div>
+
+    <div class="button-section">
+      <button class="btn btn-add" id="addBtn">
+        <span></span> ADD
+      </button>
+      <button class="btn btn-remove" id="removeBtn">
+        <span></span> REMOVE
+      </button>
+    </div>
+
+    <div class="result-box">
+      <div class="result-content" id="result">
+        <i></i>
+        <span id="resultText">SYSTEM READY</span>
+        <i></i>
+      </div>
+    </div>
+
+    <div class="users-list">
+      <div class="users-header">
+        <div class="users-title">
+          <span>👥</span>
+          <span>المستخدمين النشطين</span>
+        </div>
+        <div class="users-count" id="usersCount">0</div>
+      </div>
+      
+      <div class="users-container" id="usersContainer"></div>
+      
+      <button class="clear-all-btn" id="clearAllBtn">
+        <span>🗑️</span>
+        <span>حذف الكل</span>
+        <span>⚠️</span>
+      </button>
+    </div>
+
+    <div class="footer">
+      <span>SYSTEM ACTIVE</span><br>
+      <span style="color: #aa5555;">© SAIF SECURITY 2026</span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // API Configuration
+      const API_CONFIG = {
+        BASE_URL: "https://api-add-and-remove-alliff-v2.vercel.app",
+        BOT_ID: "4511749216",
+        TOKEN: "06EBC6657676D47739575FA98D864F281BD8ED170574D4B06ED9934B72DB2589",
+        MOCK_MODE: true, // Set to false for real API
+        MOCK_DELAY: 600
+      };
+      
+      // DOM Elements
+      const elements = {
+        userId: document.getElementById('userId'),
+        resultText: document.getElementById('resultText'),
+        usersContainer: document.getElementById('usersContainer'),
+        usersCount: document.getElementById('usersCount')
+      };
+      
+      // State
+      let selectedDuration = 'day';
+      let addedUsers = [];
+      let timerInterval = null;
+
+      // Create particles
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 20; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.width = Math.random() * 10 + 5 + 'px';
+          particle.style.height = particle.style.width;
+          particle.style.animationDelay = Math.random() * 10 + 's';
+          particle.style.animationDuration = Math.random() * 10 + 15 + 's';
+          particlesContainer.appendChild(particle);
+        }
       }
-    }
 
-    // دالة ADD
-    window.addUser = function() {
-      const id = userIdInput.value.trim();
-      if (id === "") {
-        setResult("🚫 اكتب ID أولاً");
-        return;
+      // Duration helpers
+      function getDurationMs(duration) {
+        const times = {
+          hour: 60 * 60 * 1000,
+          day: 24 * 60 * 60 * 100,,
+          week: 7 * 24 * 60 * 60 * 1000,
+          month: 30 * 24 * 60 * 60 * 1000
+        };
+        return times[duration] || times.day;
       }
 
-      setResult("⏳ جاري الإضافة...");
+      function getDurationText(duration) {
+        const texts = { hour: 'ساعة', day: 'يوم', week: 'أسبوع', month: 'شهر' };
+        return texts[duration] || duration;
+      }
 
-      // الرابط مباشر بدون أي تشفير
-      fetch(`https://api-add-and-remove-alliff-v2.vercel.app/add/${BOT_ID}/${TOKEN}/${id}`)
-        .then(response => response.text())  // النص الخام
-        .then(data => {
-          setResult(data || "✅ تمت الإضافة (استجابة فارغة)");
-        })
-        .catch(error => {
-          console.error(error);
-          setResult("ACCEPTED ✔️");
+      // Format time remaining
+      function formatTimeRemaining(expiryTime) {
+        const now = Date.now();
+        const remaining = expiryTime - now;
+        
+        if (remaining <= 0) {
+          return '<span style="color: #888;">منتهي</span>';
+        }
+
+        const seconds = Math.floor(remaining / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        let timeString = '';
+        let cssClass = 'timer-warning';
+
+        if (days > 0) {
+          timeString = `${days}ي ${String(hours % 24).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}`;
+        } else if (hours > 0) {
+          timeString = `${String(hours).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+          cssClass = remaining < 60 * 60 * 1000 ? 'timer-critical' : 'timer-warning';
+        } else {
+          timeString = `${String(minutes).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+          cssClass = 'timer-critical';
+        }
+
+        return `<span class="${cssClass}">⏳ ${timeString}</span>`;
+      }
+
+      // Load/Save users
+      function loadUsers() {
+        const saved = localStorage.getItem('aimhack_pro_users_v2');
+        if (saved) {
+          try {
+            addedUsers = JSON.parse(saved);
+          } catch (e) {
+            addedUsers = [];
+          }
+        }
+        renderUsersList();
+        startTimerUpdates();
+      }
+
+      function saveUsers() {
+        localStorage.setItem('aimhack_pro_users_v2', JSON.stringify(addedUsers));
+        renderUsersList();
+      }
+
+      // Timer updates
+      function startTimerUpdates() {
+        if (timerInterval) clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+          const now = Date.now();
+          let hasChanges = false;
+          
+          addedUsers = addedUsers.filter(user => {
+            if (user.expiryTime && user.expiryTime <= now) {
+              hasChanges = true;
+              return false;
+            }
+            return true;
+          });
+          
+          if (hasChanges) {
+            saveUsers();
+            setResult('تمت إزالة المستخدمين منتهيي الصلاحية');
+          }
+          
+          renderUsersList();
+        }, 1000);
+      }
+
+      // Render users list
+      function renderUsersList() {
+        if (!elements.usersContainer) return;
+        
+        if (addedUsers.length === 0) {
+          elements.usersContainer.innerHTML = '<div class="empty-list">✨ لا يوجد مستخدمين نشطين</div>';
+          elements.usersCount.innerText = '0';
+          return;
+        }
+
+        let html = '';
+        addedUsers.forEach((user, index) => {
+          const timeRemaining = user.expiryTime ? formatTimeRemaining(user.expiryTime) : '';
+          html += `
+            <div class="user-item" data-index="${index}">
+              <div class="user-info">
+                <div class="user-id">
+                  <i>🎯</i>
+                  <span>${user.id}</span>
+                </div>
+                <div class="user-meta">
+                  <span class="user-duration">📅 ${getDurationText(user.duration)}</span>
+                  <div class="user-timer">${timeRemaining}</div>
+                </div>
+              </div>
+              <button class="delete-single-btn" onclick="removeSingleUser(${index})">
+                <span>🗑️</span>
+                <span>حذف</span>
+              </button>
+            </div>
+          `;
         });
-    };
-
-    // دالة REMOVE
-    window.removeUser = function() {
-      const id = userIdInput.value.trim();
-      if (id === "") {
-        setResult("🚫 اكتب ID أولاً");
-        return;
+        
+        elements.usersContainer.innerHTML = html;
+        elements.usersCount.innerText = addedUsers.length;
       }
 
-      setResult("⏳ جاري الحذف...");
+      // Set result message
+      function setResult(msg, isError = false) {
+        if (elements.resultText) {
+          elements.resultText.innerText = msg;
+          elements.resultText.style.color = isError ? '#ff8888' : '#ffdddd';
+          
+          // Animation
+          elements.resultText.style.animation = 'none';
+          elements.resultText.offsetHeight;
+          elements.resultText.style.animation = 'pulse 0.5s';
+        }
+      }
 
-      fetch(`https://api-add-and-remove-alliff-v2.vercel.app/remove/${BOT_ID}/${TOKEN}/${id}`)
-        .then(response => response.text())
-        .then(data => {
-          setResult(data || "✅ تمت الإزالة (استجابة فارغة)");
-        })
-        .catch(error => {
-          console.error(error);
-          setResult(" خطأ في الاتصال");
+      // Mock API call
+      async function mockAPI(action, id) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({
+              success: true,
+              message: `✅ ${action === 'add' ? 'تمت الإضافة' : 'تم الحذف'} (محاكاة)`
+            });
+          }, API_CONFIG.MOCK_DELAY);
         });
-    };
+      }
 
-    // ربط الأزرار (clicks)
-    document.getElementById('addBtn').addEventListener('click', function(e) {
-      e.preventDefault();
-      addUser();
-    });
+      // Real API call
+      async function realAPI(action, id) {
+        try {
+          const url = `${API_CONFIG.BASE_URL}/${action}/${API_CONFIG.BOT_ID}/${API_CONFIG.TOKEN}/${id}`;
+          const response = await fetch(url);
+          const text = await response.text();
+          return { success: true, message: text };
+        } catch (error) {
+          console.error('API Error:', error);
+          return { success: false, message: '❌ فشل الاتصال بالـ API' };
+        }
+      }
 
-    document.getElementById('removeBtn').addEventListener('click', function(e) {
-      e.preventDefault();
-      removeUser();
-    });
+      // Call API
+      async function callAPI(action, id) {
+        return API_CONFIG.MOCK_MODE ? mockAPI(action, id) : realAPI(action, id);
+      }
 
-    // دعم خاصية الـ Enter في الحقل
-    userIdInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
+      // Add user
+      window.addUser = async function() {
+        const id = elements.userId.value.trim();
+        if (!id) {
+          setResult('أدخل ID أولاً', true);
+          elements.userId.focus();
+          return;
+        }
+
+        if (id.length < 5) {
+          setResult('ID غير صالح', true);
+          return;
+        }
+
+        if (addedUsers.some(u => u.id === id)) {
+          setResult('المستخدم موجود بالفعل', true);
+          return;
+        }
+
+        setResult('جاري الإضافة...');
+
+        const result = await callAPI('add', id);
+        const expiryTime = Date.now() + getDurationMs(selectedDuration);
+
+        if (result.success) {
+          addedUsers.push({
+            id: id,
+            duration: selectedDuration,
+            addedAt: new Date().toISOString(),
+            expiryTime: expiryTime
+          });
+          saveUsers();
+          setResult(`تمت إضافة ${id} - ${getDurationText(selectedDuration)}`);
+          elements.userId.value = '';
+        } else {
+          setResult(result.message, true);
+        }
+      };
+
+      // Remove single user
+      window.removeSingleUser = async function(index) {
+        if (index >= 0 && index < addedUsers.length) {
+          const user = addedUsers[index];
+          setResult(`جاري حذف ${user.id}...`);
+
+          const result = await callAPI('remove', user.id);
+
+          if (result.success) {
+            addedUsers.splice(index, 1);
+            saveUsers();
+            setResult(`تم حذف ${user.id}`);
+          } else {
+            // Still remove locally even if API fails
+            addedUsers.splice(index, 1);
+            saveUsers();
+            setResult(`تم حذف ${user.id} (محلياً)`);
+          }
+        }
+      };
+
+      // Remove by ID
+      window.removeUser = async function() {
+        const id = elements.userId.value.trim();
+        if (!id) {
+          setResult('أدخل ID أولاً', true);
+          return;
+        }
+
+        setResult('جاري الحذف...');
+
+        const result = await callAPI('remove', id);
+
+        if (result.success) {
+          const index = addedUsers.findIndex(u => u.id === id);
+          if (index !== -1) {
+            addedUsers.splice(index, 1);
+            saveUsers();
+          }
+          setResult(`تم حذف ${id}`);
+          elements.userId.value = '';
+        } else {
+          setResult(result.message, true);
+        }
+      };
+
+      // Clear all users
+      window.clearAllUsers = function() {
+        if (addedUsers.length === 0) {
+          setResult('لا يوجد مستخدمين');
+          return;
+        }
+
+        if (confirm(`هل أنت متأكد من حذف ${addedUsers.length} مستخدم؟`)) {
+          setResult('جاري حذف الكل...');
+          
+          Promise.all(addedUsers.map(user => callAPI('remove', user.id)))
+            .finally(() => {
+              addedUsers = [];
+              saveUsers();
+              setResult('✅ تم حذف الكل');
+            });
+        }
+      };
+
+      // Setup duration buttons
+      function setupDurationButtons() {
+        const buttons = document.querySelectorAll('.duration-btn');
+        buttons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            buttons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            selectedDuration = this.dataset.duration;
+            setResult(`✅ تم اختيار ${getDurationText(selectedDuration)}`);
+          });
+        });
+        document.querySelector('[data-duration="day"]').classList.add('active');
+      }
+
+      // Event listeners
+      document.getElementById('addBtn').addEventListener('click', (e) => {
         e.preventDefault();
-        addUser();   // Enter يقوم بالإضافة (يمكنك تغييره إلى remove حسب الرغبة)
-      }
-    });
+        addUser();
+      });
 
-    // نص ترحيب
-    setResult('AIMHACK BOT');
+      document.getElementById('removeBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        removeUser();
+      });
 
-    // لجعل الوظائف معرفة عالمياً (للاحتياط)
-    window.addUser = addUser;
-    window.removeUser = removeUser;
+      document.getElementById('clearAllBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        clearAllUsers();
+      });
 
-    console.log('✅');
-  })();
-</script>
+      elements.userId.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addUser();
+        }
+      });
 
-<!-- دالة إضافية لحماية أي استدعاء خارجي (لكنها تشير إلى نفس الدوال) -->
-<script>
-  // التأكد أن onclick القديم (في حالة كان موجود) يشغل نفس الوظيفة
-  window.addUser = window.addUser || function() { document.getElementById('addBtn').click(); };
-  window.removeUser = window.removeUser || function() { document.getElementById('removeBtn').click(); };
-</script>
+      // Initialize
+      createParticles();
+      setupDurationButtons();
+      loadUsers();
+      setResult('SYSTEM READY');
 
+      // Expose functions globally
+      window.addUser = addUser;
+      window.removeUser = removeUser;
+      window.removeSingleUser = removeSingleUser;
+      window.clearAllUsers = clearAllUsers;
+
+      console.log('System initialized');
+    })();
+  </script>
 </body>
 </html>
